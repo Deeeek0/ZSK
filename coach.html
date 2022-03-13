@@ -1,0 +1,93 @@
+<?php 
+include './config/rz.php';
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<body style="background: url(image/修改.jpg);">
+				<style type="text/css">
+					body{
+					padding: 0px;
+					margin: 0px;
+					background: url(/image/yun.jpg);
+					background-size: cover;
+					}
+					  .box1{
+								position: absolute;
+								top: 50%;
+								left:50%;
+								transform: translate(-50%,-50%);
+								width: 1200px;
+								padding-top: 70px;
+							}
+						li{	
+							float: left;
+							width: 25%;
+							list-style-type: none;
+						}
+						li img{
+							width: 250px;
+							height: 150px;
+						}
+						#u1001{
+				width:86%;
+				height:10%;
+				background-color:white;
+				margin:10px auto;
+				padding:0px 0px 0px 20px;
+			}
+			#u1001 li{
+				width:20%;
+				height:30px;
+				float:left;
+				list-style:none;
+				margin:0px auto;
+			}
+			#u1001 a{
+				display:block;
+				width:100%;
+				height:410px;
+				color:#FFFFFF;
+				text-align:center;
+				text-decoration:none;
+			}
+					</style>
+	</head>
+	<body>
+<ul id="u1001">
+	<li><a href="./ca1.html">预约场地</a></li>
+	<li><a href="./coach.html">预约教练员</a></li>
+	<li><a href="./tao.html">商城</a></li>
+	<li><a href="./yun.html">教学视频</a></li>
+	<li><a href="./luntan/luntan.html">交流平台</a></li>
+</ul>
+		<div class="box1"> 
+		<h1 style="text-align: center;color: rgb(255, 255, 255);">项目选择</h1>
+		<ul>
+			<li><a href="basketballCoach.html"><img src="image/basketball.jpg"></a></li>
+			<li><a href="basketballCoach.html"><img src="image/tabletennis.jpg"></a></li>
+			<li><input type='button' value="瑜伽"/></li>
+			<li><input type='button' value="健美操"/></li>
+			<li><input type='button' value="网球"/></li>
+			<li><input type='button' value="羽毛球"/></li>
+			<li><input type='button' value="游泳"/></li>
+			<li><input type='button' value="田径"/></li>
+			<li><input type='button' value="武术"/></li>
+			<li><input type='button' value="健身"/></li>
+		</ul>
+		</div>
+	</body>
+	<script>
+			let lis = document.getElementsByTagName('li')
+			var index
+			for(let i =0; i<lis.length; i++){
+				lis[i].index = i
+				lis[i].addEventListener('click',
+				function(e){
+					window.location.href='coachShow.html'
+					window.sessionStorage.setItem("id",this.index)
+				},false)
+			}
+	</script>
+</html>

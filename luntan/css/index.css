@@ -1,0 +1,367 @@
+/* 主页index.html样式 */
+.topbar-wrapper{
+    /* 设置宽度全屏 */
+    width: 100%;
+    /* 设置行高，使字体可以垂直居中 */
+    line-height: 80px;
+    height: 80px;
+    background-color: #333;
+}
+
+/* 设置超链接的颜色 */
+.topbar a{
+    font-size:12px ;
+    color: #b0b0b0;
+    display: block;
+    
+}
+.topbar a:hover{
+    color: white;
+}
+.topbar .line{
+    font-size:12px ;
+    color:#424242;
+    margin: 0 8px;
+}
+/* 设置左侧导航栏 */
+.service ,.topbar li{
+    float: left;
+}
+/* 设置右侧导航栏 */
+.shop-cart,.user-info{
+    float: right;
+}
+/* 设置购物车的样式 */
+.shop-cart{
+    margin-left: 25px;
+}
+.shop-cart a{
+    width: 120px;
+    background-color: #424242;
+    text-align: center;
+}
+.shop-cart i{
+    margin-right: 2px;
+}
+.shop-cart{
+    position: relative;
+}
+.shop-cart:hover a,.xiala {
+    color: #ff6700;
+    background-color: white;
+    display: block;
+    
+}
+/* 购物车的下拉框 */
+.shop-cart .xiala{
+    
+    position: absolute;
+    width: 250px;
+    height: 0;
+   overflow: hidden;
+   line-height: 1;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0,.3);
+}
+
+
+/* li:hover>.app .qrcode{
+    display: block;
+} */
+.app:hover .qrcode,
+.app:hover::after{
+    display: block;
+    height: 148px;
+}
+
+
+/* 设置二维码下拉 */
+.app .qrcode{
+    /* display: none; */
+    position: absolute;
+        width: 124px;
+        /* height: 148px; */
+        height: 0;
+        overflow: hidden;
+        left: -37px;
+        background-color: aliceblue;
+        line-height: 1;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0,.3);
+        /*  transition:用于为样式设置过渡效果 */
+        transition: height 0.3s;
+}
+/* 设置二维码的图片 */
+.app .qrcode img{
+    width: 90px;
+    margin: 0 17px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+
+}
+/* 设置二维码里面的文字 */
+.app .qrcode span{
+    color: #000;
+    font-size: 14px;
+}
+.app{
+    position: relative;
+}
+/* 设置二维码里面的小三角 */
+ li:hover>.app::after{
+     display: block;
+   
+    content: '';
+    /* 设置绝对定位 */
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* 设置四个方向的边框 */
+    border: 6px solid transparent;
+    /* 去除上边框 */
+    border-top: none;
+    /* 单独设置下边框的颜色 */
+    border-bottom-color:rgb(241, 234, 234) ;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto ;
+
+}
+/* 全局样式 */
+.con--index {
+    width: 1190px;
+    margin: 20px auto 0;
+    font-family: "PingFang SC","Microsoft YaHei",arial,"Hiragino Sans GB","Hiragino Sans GB W3";
+}
+div {
+    display: block;
+}
+.con {
+    width: 1190px;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+/* 左侧导航 */
+.leftbox {
+    float: left;
+    width: 150px;
+    position: absolute;
+    box-sizing: border-box;
+}
+.leftbox .tabbox {
+    position: relative;
+    font-family: 'Microsoft Yahei';
+    font-size: 16px;
+    color: #333;
+    width: 180px;
+    background-color: #f7f7f8;
+}
+.leftbox .tabbox__item, .con--index .leftbox .tabbox__moreitem, .con--index .leftbox .tabbox__moretitle {
+    display: inline-block;
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+/* 中部容器样式 */
+.con--index .midbox {
+    float: left;
+    margin-left: 250px;
+}
+.con {
+    width: 1190px;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+*{
+    margin: 0;
+    padding:0;
+}
+.wrap{
+    width: 600px;
+    margin: 0px auto;
+
+}
+.menu{
+    width: 600px;
+    height: 30px;
+    background: cornflowerblue;
+    position: sticky;
+    top:0px;
+}
+.menu ul li{
+    float: left;
+    list-style-type: none;
+    padding: 0 40px;
+}
+.content ul li img:hover{
+    transform: scale(1.2);/*当鼠标移动到图片上时实现放大功能*/
+}
+.content ul li{
+    height: 100px;
+    overflow: hidden;
+    border-bottom: 1px solid lavender;
+    background: white;
+    list-style-type: none;
+    transition-duration: 0.5s;
+    margin: 10px 10px 5px 0;
+
+}
+.content ul li:hover{
+    background-color: lavender;
+    transition-duration: 0.5s;
+}
+.content .left{
+    overflow: hidden;/*隐藏溢出图片内容*/
+    transition-duration: 0.5s;
+    width: 140px;
+    height:80px;
+    /*background: green;*/
+    float: left;
+    margin-right:20px;
+}
+.content .right{
+    width:400px ;
+    float: left;
+    /*background: pink;*/
+}
+.right_top{
+    height:60px;
+}
+.right_bottom{
+    margin_top:50px;
+}
+.right_bottom_left span{
+    color: darkgray;
+    font-size: 12px;
+}
+
+/* 右侧导航栏 */
+.con--index .zixun {
+    font-family: "PingFang SC","Microsoft YaHei",arial,"Hiragino Sans GB","Hiragino Sans GB W3";
+    float: right;
+    width: 300px;
+}
+
+.hotsearch-box {
+    width: 300px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+.hotsearch-box-top {
+    width: 100%;
+    height: 30px;
+}
+.hotsearch-box-title {
+    float: left;
+    height: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333;
+}
+.hotsearch-box-list {
+    
+    font-size: 14px;
+    color: #000;
+}
+.hotsearch-box-list li {
+    padding: 2px 0;
+    position: relative;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.hotsearch-box-list a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+.hotsearch-box-content ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+/* 右侧实时热点 */
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+a{
+    text-decoration: none; 
+}
+.new-wrapper{
+width: 300px;
+height: 600px;
+/* 设置向左浮动 */
+float: right;
+background-color: rgb(248, 240, 240);
+/* 设置上边框 */
+border-top: 1px solid #ddd;
+
+}
+/* 设置news-title */
+.new-title{
+/* 为了边框和文字宽度一致，需要将h2转换为行内块元素 */
+display: inline-block;
+height: 40px;
+/* 设置上边框 */
+border-top: 1px red solid;
+margin-top: -1px;
+padding-top: 10px;
+}
+.new-title a{
+/* 去除下划线 */
+text-decoration: none;
+color:#404068;
+/* 设置文字的加粗效果 */
+font-weight: bold;
+
+}
+.news-img{
+height: 150px;
+}
+/* 设置图片的文字效果 */
+.news-img .img-title{
+margin-top: -30px;
+color:aliceblue;
+font-weight: bold;
+font-size: 18px;
+padding-left: 30px;
+}
+/* 设置新闻列表 */
+.news-list{
+/* 设置上外边距 */
+margin-top: 60px;
+/* 设置左侧的padding */
+padding-left: 14px;
+}
+.news-list li{
+margin-bottom: 17px;
+}
+.news-list li a{
+font-size: 14px;
+color: #404068;
+}
+.news-list li a:hover{
+color:red;
+}
+.news-list li:before{
+content:'■';
+font-size: 12px;
+
+
+}

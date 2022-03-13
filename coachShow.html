@@ -1,0 +1,62 @@
+<?php 
+include './config/rz.php';
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>body{
+			padding: 0px;
+			margin: 0px;
+			background: url(登录界面.jpg);
+			background-size: cover;
+			}</style>
+			<body style="background:url(image/修改.jpg);">
+	</head>
+	<body onload="windowload();">
+		
+		<div style=" position: absolute;
+		width: 800px;
+		height: 400px;
+		background-color:rgb(0,0,0,0.8);
+		left: 28%;
+		top:25%;
+		margin-left: -50px;
+		margin-top: -50px;
+		"">
+   
+			
+			<img id='image' style="width: 800px; height: 400px;" >
+			<div id='name' style="float: left; font-size: 40px;text-align: center;;"></div>
+			<!-- <div id='note' style="float: left;width: 500px; font-size: 20px; margin:0 50px;">
+				&emsp;&emsp;
+			</div> -->
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var values = [
+			
+		['篮球','./image/篮球.jpg'],
+		['乒乓球','./image/乒乓球.jpg'],
+		['瑜伽','./image/瑜伽.jpg'],
+		['健美操','./image/健美操.jpg'],
+		['网球','./image/网球.jpg'],
+		['羽毛球','./image/羽毛球.jpg'],
+		['游泳','./image/游泳.jpg'],
+		['田径','./image/田径.jpg'],
+		['武术','./image/武术.jpg'],
+		['健身','./image/健身.jpg'],
+		
+		
+		
+			]
+		function windowload(){
+			var index = window.sessionStorage.getItem("id")
+			document.getElementById('name').innerText = values[index][0]
+			document.getElementById('image').src = values[index][1]
+			// document.getElementById('note').innerText = values[index][2]
+			}
+	</script>
+</html>

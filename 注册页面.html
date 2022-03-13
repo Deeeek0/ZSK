@@ -1,0 +1,111 @@
+<?php
+header("Content-Type:text/html;charset=utf-8");
+?>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<body style="background-image: url(image/预约界面.jpg);">
+		<style>
+			
+			.box1{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 400px;
+				padding: 40px;
+				background: rgb(0,0,0,0.8);
+				box-sizing: border-box;
+				box-shadow: 0 15px 25px rgb(0,0,0,0.5);
+				border-radius: 10px;
+				opacity:0.9;
+
+			}
+			.box1 h2{
+				margin: 0 0 30px;
+				padding: 0px;
+				color: #ffffff;
+				text-align: center;
+			}
+			.box1 .inputbox{
+				position: relative;
+			}
+			.box1 .inputbox input{
+				width: 100%;
+				padding: 10px 0;
+				margin-bottom: 30px;
+				font-size: 18px;
+				border: none;
+				color: #ffffff;
+				outline: none;
+				background: transparent;
+				border-bottom: 1px solid #ffffff;
+			}
+			.box1 .inputbox label{
+				position:  absolute;
+				top: 0;
+				left: 0;
+				font-size: 18px;
+				color: #ffffff;
+				pointer-events: none;
+				transition: 0.5s;
+			}
+			.box1 .inputbox input:focus ~ label,
+			.box1 .inputbox input:valid ~ label{
+				top: -18px;
+				left: 0px;
+				font-size: 16px;
+				color: #03a9f4;
+			}
+			.box1 input[type="submit"]{
+				background: transparent;
+				border: none;
+				outline: none;
+				color: #ffffff;
+				background: #03a9f4;
+				padding: 10px 20px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+			.box1 input[type="button"]{
+				background: transparent;
+				border: none;
+				outline: none;
+				color: #ffffff;
+				background: #03a9f4;
+				padding: 10px 20px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+			body{
+			padding: 0px;
+			margin: 0px;
+			background: url(./页面/34.jpg);
+			background-size: cover;
+			}
+			</style>
+	</head>
+
+ <body>
+	<div class="box1"> 
+		<h2>注册</h2>
+		<!--将用户输入的user,和pass提交到login.php-->
+		<form action="register.php" method="post" enctype="multipart/form-data">
+			<div class="inputBox"><input type="text" name="userid" value=""required="required"
+				placeholder="            请输入您的账号"><label>账号</label></div>
+			<div class="inputBox"><input type="text" name="phone" value="" required="required"
+				placeholder=   "            请输入您的手机号码" pattern="[0-9]{11}" title="手机号为11为数字"><label>手机号</label></div>
+			<div class="inputBox"><input type="password"   name="password" value="" required="required"
+				placeholder="            请输入您的密码"><label>密码</label></div>
+			<div class="inputBox"><input type="password"   name="confirm" value="" required="required"
+				placeholder="               请重复您的密码"><label>确认密码</label></div>
+			
+			<input type="submit" name="submit" value="确认注册">
+			<input type="button" onclick="window.location.href='登录界面.html'" value="返回登陆">
+			
+			
+		</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,186 @@
+<?php 
+include './config/rz.php';
+?>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+	<title>预约系统</title>
+	
+<body>
+
+<link rel="stylesheet" href="css/person.css" type="text/css">
+		<style type="text/css">
+		#res_form {
+			/*表的宽度以及位置*/
+			width: 500px;
+			position: relative;
+			left: 500px;
+			top: 100px;
+			background-color: #dae2f0;
+			opacity:0.8;
+			
+		}
+		
+		#a {
+			/*调整input输入框与文字位置，显示同一行*/
+			height: 50px;
+			border: 1px;
+			margin: 10px;
+			text-align: left;
+		}
+		
+		#a input {
+			border: 1px solid #000000;
+			/*按钮边缘*/
+			border-radius: 5px;
+			float: right;
+		}
+		
+		#a select {
+			border: 5px;
+			width: 200px;
+			border-color: #000000;
+			border-radius: 5px;
+			float: right;
+		}
+		
+		#textarea {
+			float: right;
+			width: 200px;
+		}
+		
+		#bt input {
+			float: left;
+			margin: 10px;
+			width: 50px;
+			background-color: #3CF;
+			border-bottom-color: #000000;
+			border-radius: 5px;
+			position: relative;
+			top: 20px;
+			left: 100px;
+		}
+		h1 {
+			position: absolute;
+			float: left top;
+			left: 660px;
+			color: aliceblue;
+			
+		}
+		body{
+			padding: 0px;
+			margin: 0px;
+			background: url(./image/预约界面.jpg);
+			background-size: cover;
+			}
+		#bs{
+			float: left;
+			margin: 10px;
+			width: 50px;
+			background-color: #3CF;
+			border-bottom-color: #000000;
+			border-radius: 5px;
+			position: relative;
+			top: 20px;
+			left: 100px;
+		}	
+	
+	</style>
+	
+				<h1>教练员预约</h1>
+				<div id="res_form">
+				<form action="ca.php" method="post">
+				<div id="a">
+				姓名
+				<input type="text" name="name" placeholder="请填写真实姓名" required>
+			</div>
+
+				<div id="a">
+				联系方式
+				<input type="text" name="phone" placeholder="请填写真实手机号" required>
+			</div>
+
+				<div id="a">
+				运动项目
+				<select name="team">
+					<option selected="selected">请选择</option>
+					<option value="田径">田径</option>
+					<option value="游泳">游泳</option>
+					<option value="羽毛球">羽毛球</option>
+					<option value="乒乓球">乒乓球</option>
+					<option value="篮球">篮球</option>
+					<option value="足球">足球</option>
+					<option value="网球">网球</option>
+					<option value="健身">健身</option>
+					<option value="瑜伽">瑜伽</option>
+					<option value="排球">排球</option>
+					<option value="武术">武术</option>
+					<option value="健美操">健美操</option>
+				</select>
+ 
+ 
+			</div>
+			<div id="a">
+				教练员
+				<select name="people">
+					<option selected="selected">请选择</option>
+					<option value="李明平">李明平</option>
+					<option value="郭峰">郭峰</option>
+					<option value="胡敏">胡敏</option>
+					<option value="崔荔宝">崔荔宝</option>
+					<option value="钱龙超">钱龙超</option>
+					<option value="刘鑫">刘鑫</option>
+					<option value="郑晶">郑晶</option>
+					<option value="夏磊">夏磊</option>
+					<option value="刘海粟">刘海粟</option>
+					<option value="郜健">郜健</option>
+					<option value="梁超英">梁超英</option>
+					<option value="高珊珊">高珊珊</option>
+					<option value="闫旋飞">闫旋飞</option>
+					<option value="寇文军">寇文军</option>
+					<option value="卢京顺">卢京顺</option>
+					
+				</select>
+			</div>
+			<div id="a">
+				预约日期
+				<input type="date" name="date" placeholder="" required>
+			</div>
+		
+			
+			
+			<div id="a">
+				预约时间
+				<select name="time">
+					<option selected="selected">请选择</option>
+					<option value="09:00-12:00">09:00-12:00</option>
+					<option value="14:00-17:00">14:00-17:00</option>
+					
+					
+				</select>
+ 
+ 
+			</div>
+			<div id="a">
+				<a href="./addr.html">场地(点击查看)</a>
+				<!-- 场地(点击查看) -->
+				
+				<select name="place">
+					<option selected="selected">请选择</option>
+					<option value="广东理工学院">广东理工学院</option>
+					
+				</select>
+ 
+ 
+			</div>
+			<div id="bt">
+				<input type="submit" value="确定">
+				
+			</div>
+			
+			</form>
+			
+		</div>
+		
+</body>
+</html>

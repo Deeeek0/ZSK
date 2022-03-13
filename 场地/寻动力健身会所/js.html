@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<title>寻动力健身会所介绍</title>
+<meta charset="utf-8">
+<style>
+html,body{
+	width:100%;
+	height:100%
+}
+body{
+  
+  background:url("../../image/123.jpg") no-repeat;
+  background-size: 100%;
+}
+
+
+ul{padding:0;margin:0;}
+li{margin:0;padding:0;list-style-type:none;}
+img{border:0;}
+.play{width:800px;height:430px;margin:150px auto 0;background:#999;font:12px Arial;}
+.mark_left{width:200px;height:320px;position:absolute;left:0;top:0;;fliter:alpha(opacity=0);opacity:0.6;z-index:3000;}
+.mark_right{width:200px;height:320px;position:absolute;left:200px;top:0;fliter:alpha(opacity=0);opacity:0.6;z-index:3000;}
+.big_pic .prev{width:60px;height:60px;background:url(images/L.png) no-repeat;position:absolute;top:130px;left:10px;z-index:3001;filter:alpha(opacity=0);opacity:0;cursor:pointer;}
+.big_pic .next{width:60px;height:60px;background:url(images/R.png) no-repeat;position:absolute;top:130px;right:10px;z-index:3001;filter:alpha(opacity=0);opacity:0;cursor:pointer;}
+.big_pic .text{position:absolute;left:10px;bottom:4px;z-index:3000;color:#ccc;}
+.big_pic .length{position:absolute;right:10px;bottom:4px;z-index:3000;color:#ccc;}
+.big_pic .bg{width:800px;height:25px;background:#000;filter:alpha(opacity=60);opacity:0.6;position:absolute;z-index:2999;bottom:0;left:0;}
+.big_pic{width:800px;height:320px;overflow:hidden;border-bottom:1px solid #ccc;background:#222;position:relative;}
+.big_pic li{width:800px;height:320px;overflow:hidden;position:absolute;top:0;left:0;z-index:0;}
+.big_pic img{width:800px;height:320px;position:absolute;}
+.small_pic{width:800px;height:94px;position:relative;top:7px;left:10px;overflow:hidden;}
+.small_pic ul{height:94px;position:absolute;top:0;left:0;}
+.small_pic li{width:120px;height:94px;float:left;padding-right:10px;cursor:pointer;filter:alpha(opacity=60);opacity:0.6;}
+.small_pic img{width:120px;height:94px;}
+
+</style>
+<script>
+function getByClass(oParent,sClass)
+{
+	var aEle=oParent.getElementsByTagName('*');
+	var aResult=[];
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(aEle[i].className==sClass)
+		{
+			aResult.push(aEle[i]);
+		}
+	}
+	return aResult;
+}
+ 
+function getStyle(obj,name)
+{
+	if(getComputedStyle(obj,null)[name])
+	{
+		return getComputedStyle(obj,null)[name];
+					//fireFox、chrome
+	}
+	else
+	{
+		return obj.currentStyle[name];
+					//IE
+	}
+}
+ 
+function startMove(obj,attr,iTarget)
+{
+ 
+	clearInterval(obj.timer);
+ 
+	obj.timer=setInterval(function(){
+	
+	var cur=0;
+	if(attr=="opacity")
+	{
+		cur=Math.round(parseFloat(getStyle(obj,attr))*100);
+	}
+	else
+	{
+		cur=parseInt(getStyle(obj,attr));
+	}
+	
+	var speed=(iTarget-cur)/30;
+	
+	speed=speed>0?Math.ceil(speed):Math.floor(speed);
+	
+	if(cur==iTarget)
+	{
+		clearInterval(obj.timer);
+	}
+	else
+	{
+		if(attr=="opacity")
+		{
+			cur+=speed;
+			obj.style.fliter='alpha(opacity:'+cur+')';
+			obj.style.opacity=cur/100;
+		}
+		else
+		{
+			obj.style[attr]=cur+speed+'px';
+		}
+	}
+ 
+	},30)
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById('playimages');
+	var oBtnPrev=getByClass(oDiv,'prev')[0];
+	var oBtnNext=getByClass(oDiv,'next')[0];
+	var oMarkLeft=getByClass(oDiv,'mark_left')[0];
+	var oMarkRight=getByClass(oDiv,'mark_right')[0];
+	var oDivSmall=getByClass(oDiv,'small_pic')[0];
+	var oUlSmall=oDivSmall.getElementsByTagName('ul')[0];
+	var aLiSmall=oDivSmall.getElementsByTagName('li');
+	
+	var oDivBig=getByClass(oDiv,'big_pic')[0];
+	var oUlBig=oDivBig.getElementsByTagName('ul')[0];
+	var aLiBig=oDivBig.getElementsByTagName('li');
+ 
+    oUlSmall.style.width=aLiSmall.length*aLiSmall[0].offsetWidth+'px';
+	
+	var now=0;
+	var nowZIndex=2;
+	//左右按钮
+	oBtnPrev.onmouseover=oMarkLeft.onmouseover=function()
+	{
+		startMove(oBtnPrev,'opacity',100);
+	};
+	oBtnPrev.onmouseout=oMarkLeft.onmouseout=function()
+	{
+		startMove(oBtnPrev,'opacity',0);
+	};
+	oBtnNext.onmouseover=oMarkRight.onmouseover=function()
+	{
+		startMove(oBtnNext,'opacity',100);
+	};
+	oBtnNext.onmouseout=oMarkRight.onmouseout=function()
+	{
+		startMove(oBtnNext,'opacity',0);
+	};
+	//点击缩略图出现对应的大图。
+	for(var i=0;i<aLiSmall.length;i++)
+	{
+		aLiSmall[i].index=i;
+		
+		aLiSmall[i].onclick=function()
+		{
+			//大图的zIndex属性每次都会在上一个值的基础上加一。
+			
+			if(this.index==now)return;
+			now=this.index;
+			tab();
+		}
+		//鼠标移入缩略图，图片清晰，鼠标移出缩略图图片模糊。
+		aLiSmall[i].onmouseover=function()
+		{
+			startMove(this,"opacity",100);
+		}
+		aLiSmall[i].onmouseout=function()
+		{
+			if(this.index!=now)
+			{
+				startMove(this,"opacity",60);
+			}		
+		}
+		
+		//封装需要的代码
+		function tab()
+		{
+			aLiBig[now].style.zIndex=nowZIndex++;
+			//缩略图的不透明度,所有缩略图均设置0.6不透明度，当前点击的缩略图不透明度为1。
+			for(var i=0;i<aLiSmall.length;i++)
+			{
+	         	startMove(aLiSmall[i],'opacity',60);
+			};
+			startMove(aLiSmall[now],"opacity",100);
+			
+			aLiBig[now].style.height=0;
+			startMove(aLiBig[now],'height',320);
+			
+			//点击缩略图，缩略图整体移动
+			if(now==0)
+			{
+				startMove(oUlSmall,'left',0);/*aUlSmall.style.left=0;*/
+			}
+			else if(now==aLiSmall.length-1)
+			{
+				startMove(oUlSmall,'left',-(now-2)*aLiSmall[0].offsetWidth);
+			}
+			else
+			{
+				startMove(oUlSmall,'left',-(now-1)*aLiSmall[0].offsetWidth);	
+			}
+		}
+		//点击大图左右方向，大图对应显示上一张或下一张。
+ 
+	}
+	oBtnNext.onclick=function()
+		{
+			now++;
+			if(now==aLiSmall.length)
+			{
+				now=0;
+			}
+        	
+			tab();
+			
+		}
+		oBtnPrev.onclick=function()
+		{
+			now--;
+			if(now==-1)
+			{
+				now=aLiSmall.length-1;
+			}
+			tab();
+		}
+ 
+	//自动播放以及暂停自动播放
+	var timer=setInterval(oBtnNext.onclick,20000);
+	oDiv.onmouseover=function()
+	{
+		clearInterval(timer);
+	}
+	oDiv.onmouseout=function()
+	{
+		timer=setInterval(oBtnNext.onclick,2000);
+	}
+	
+}
+</script>
+</head>
+<body>
+	
+
+<div id="playimages" class="play">
+	<ul class="big_pic">
+    	<div class='prev'></div>
+        <div class='next'></div>
+        <div class='text'>寻动力健身会所介绍</div>
+        <div class='length'>广东理工学院</div>
+        <a class='mark_left' href='javascript:;'></a>
+        <a class='mark_right' href='javascript:;'></a>
+        <div class='bg'></div>
+        <li style='z-index:1;'><img src="寻动力健身会所.jpg"/></li>
+        <li><img src="1.jpg"/></li>
+        <li><img src="2.jpg"/></li>
+        <li><img src="3.jpg"/></li>
+        <li><img src="4.jpg"/></li> 
+        <li><img src="5.jpg"/></li>
+    </ul>
+    <div class='small_pic'>
+    	<ul style='width:390px;'>
+            <li style='z-index:1;filter:alpha(opacit=100);opacity:1;'><img src="寻动力健身会所.jpg"/></li>
+            <li><img src="1.jpg"/></li>
+            <li><img src="2.jpg"/></li>
+            <li><img src="3.jpg"/></li>
+            <li><img src="4.jpg"/></li> 
+           <li><img src="5.jpg"/></li>
+        </ul>
+    </div>
+</div>
+ 
+</body>
+</html>
